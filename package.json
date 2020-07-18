@@ -1,0 +1,56 @@
+{
+	"name": "touchbar-focus-demo",
+	"displayName": "touchbar-focus-demo",
+	"description": "VSCode extension that wants to show a command in the touchbar when the Search Viewlet is focused",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.47.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+        "onCommand:touchbar-focus-demo.editorIsFocused",
+        "onCommand:touchbar-focus-demo.searchIsFocused",
+        "onCommand:touchbar-focus-demo.searchIsVisible"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "touchbar-focus-demo.editorIsFocused",
+				"title": "Editor Focus"
+			},
+			{
+				"command": "touchbar-focus-demo.searchIsFocused",
+				"title": "Search Focus"
+			},
+			{
+				"command": "touchbar-focus-demo.searchIsVisible",
+				"title": "Search Visible"
+			}
+		],
+		"menus": {
+			"touchBar": [
+				{
+					"command": "touchbar-focus-demo.editorIsFocused",
+					"group": "1_demo",
+					"when": "editorFocus"
+				},
+				{
+					"command": "touchbar-focus-demo.searchIsFocused",
+					"group": "2_demo",
+					"when": "searchViewletFocus"
+				},
+				{
+					"command": "touchbar-focus-demo.searchIsVisible",
+					"group": "3_demo",
+					"when": "searchViewletVisible"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"build": "true"
+	}
+}
